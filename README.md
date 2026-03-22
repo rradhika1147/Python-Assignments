@@ -54,38 +54,28 @@ print(f"Sine of {a} is {math.sin(a)}")
 
 Assignment 4
 1)
-def read_file():
-    try:
-        with open("sample.txt", "r") as file:
-            print("Reading file content:\n")
-            for line_number, line in enumerate(file, start=1):
-                print(f"Line {line_number}: {line.strip()}")
-
-    except FileNotFoundError:
-        print("Error: The file 'sample.txt' was not found.")
-
-    except Exception as e:
-        print(f"An unexpected error occurred: {e}")
-read_file()
-
+file = open("sample.txt", "r")
+print("Reading file content:\n")
+line_number = 1
+for line in file:
+    print("Line", line_number, ":", line.strip())
+    line_number += 1
+file.close()
 
 
 2)
-def write_and_append_file():
-    try:
-        text = input("Enter text to write to the file: ")
-        with open("output.txt", "w") as file:
-            file.write(text + "\n")
-        print("Data successfully written to output.txt.\n")
-        more_text = input("Enter additional text to append: ")
-        with open("output.txt", "a") as file:
-            file.write(more_text + "\n")
-        print("Data successfully appended.\n")
-        print("Final content of output.txt:")
-        with open("output.txt", "r") as file:
-            for line in file:
-                print(line.strip())
-    except Exception as e:
-        print(f"An error occurred: {e}")
-write_and_append_file()
-
+text = input("Enter text to write to the file: ")
+file = open("output.txt", "w")
+file.write(text + "\n")
+file.close()
+print("Data successfully written to output.txt.\n")
+more_text = input("Enter additional text to append: ")
+file = open("output.txt", "a")
+file.write(more_text + "\n")
+file.close()
+print("Data successfully appended.\n")
+print("Final content of output.txt:")
+file = open("output.txt", "r")
+for line in file:
+    print(line.strip())
+file.close()
