@@ -26,7 +26,7 @@ else:
 
 2)
 sum = 0
-for i in range(1,50):
+for i in range(1,51):
     sum += i
 print("The sum of numbers from 1 to 50 is:",sum)
 
@@ -37,11 +37,7 @@ def factorial(n):
     if n == 0:
         return 1
     else:
-        fact = 1
-        for i in range(1,n+1):
-            fact *= i
-        return fact
-
+        return n * factorial(n-1)
 a = int(input("Enter a number:"))
 b = factorial(a)
 print(f"The factorial of {a} is {b}")
