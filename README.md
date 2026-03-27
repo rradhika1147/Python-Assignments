@@ -54,14 +54,17 @@ print(f"Sine of {a} is {math.sin(a)}")
 
 Assignment 4
 1)
-file = open("sample.txt", "r")
-print("Reading file content:\n")
-line_number = 1
-for line in file:
-    print("Line", line_number, ":", line.strip())
-    line_number += 1
-file.close()
-
+try:
+    with open("sample.txt", "r") as file:
+        print("Reading file content:\n")
+        line_number = 1
+        for line in file:
+            print("Line", line_number, ":", line.strip())
+            line_number += 1
+except FileNotFoundError:
+    print("Error: The file 'sample.txt' was not found.")
+finally:
+    print("\nTask 1 execution completed.")
 
 2)
 text = input("Enter text to write to the file: ")
